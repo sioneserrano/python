@@ -2,6 +2,7 @@
 alunos = []
 
 def menu():
+    print("\n")
     print("1-Cadastrar aluno")
     print("2-Listar alunos")
     print("3-Calcular média")
@@ -10,6 +11,7 @@ def menu():
     print("\n")
 
 def cadastrar_aluno():
+    print("\n")
     print("Informe os dados do aluno")
     nome = input("Nome: ")
     nota1 = float(input("Nota 1: "))
@@ -38,6 +40,7 @@ def mostrar_media():
 
 def listar_alunos():
     if len(alunos) == 0:
+        print("\n")
         print("Nenhum aluno cadastrado!\n")
     else:
         print("\n")
