@@ -14,19 +14,25 @@ def cadastrar_aluno():
     print("\n")
     print("Informe os dados do aluno")
     nome = input("Nome: ")
-    nota1 = float(input("Nota 1: "))
-    nota2 = float(input("Nota 2: "))
+
+    try:
+        nota1 = float(input("Nota 1: "))
+        nota2 = float(input("Nota 2: "))
+
+        media = (nota1 + nota2) / 2
     
-    media = (nota1 + nota2) / 2
+        aluno = {
+            "nome": nome,
+            "nota1": nota1,
+            "nota2": nota2,
+            "media": media 
+        }
+        alunos.append(aluno)
+        print("\nAluno cadastrado com sucesso!\n")
+    except ValueError:
+        print("As medias devem ser numero!")
     
-    aluno = {
-        "nome": nome,
-        "nota1": nota1,
-        "nota2": nota2,
-        "media": media 
-    }
-    alunos.append(aluno)
-    print("\nAluno cadastrado com sucesso!\n") 
+ 
     
 def mostrar_media():
     print("\n")
@@ -56,6 +62,7 @@ def mostrar_resultado():
     print("Resultados:")
     i = 0
     while i < len(alunos):
+        
         print(f'{i+1}- {alunos[i]["nome"]}') 
         print(f'Média: {alunos[i]["media"]:.1f}')
         

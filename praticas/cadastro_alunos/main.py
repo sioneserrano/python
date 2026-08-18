@@ -1,9 +1,11 @@
 from funcoes import * 
 
 while True:
-    menu()
+  menu()
+
+  try:
     opcao = int(input("Informe uma opcao: "))
-    
+
     if opcao == 1:
       cadastrar_aluno()
 
@@ -19,5 +21,10 @@ while True:
     elif opcao == 5:
       print("Saindo...")
       break
+      
     else:
       print("Opção inválida!\n")
+
+  except ValueError:
+    print("A opcao tem que ser um numero!") 
+
