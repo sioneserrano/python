@@ -73,3 +73,11 @@ def mostrar_resultado():
         print("")
         i = i + 1
     print("\n")
+
+def tratar_erro(texto)
+   while True:
+        try:
+            numero = int(input(texto))
+            return numero
+        except ValueError:
+            print("Informe um número!")
