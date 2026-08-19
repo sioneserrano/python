@@ -4,7 +4,7 @@ while True:
   menu()
 
   try:
-    opcao = int(input("Informe uma opcao: "))
+    opcao = tratar_erro("Informe uma opcao: ")
 
     if opcao == 1:
       cadastrar_aluno()
