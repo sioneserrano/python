@@ -1,6 +1,10 @@
 
 alunos = []
 
+def cadastro_vazio():
+    print("\n")
+    print("Nenhum aluno cadastrado!\n")
+
 def menu():
     print("\n")
     print("1-Cadastrar aluno")
@@ -8,72 +12,60 @@ def menu():
     print("3-Calcular média")
     print("4-Mostrar aprovado/reprovado")
     print("5-Sair")
-    print("\n")
 
 def cadastrar_aluno():
     print("\n")
     print("Informe os dados do aluno")
     nome = input("Nome: ")
 
-    try:
-        nota1 = float(input("Nota 1: "))
-        nota2 = float(input("Nota 2: "))
+    nota1 = tratar_erro("Nota 1: ")
+    nota2 = tratar_erro("Nota 2: ")
 
-        media = (nota1 + nota2) / 2
-    
-        aluno = {
-            "nome": nome,
-            "nota1": nota1,
-            "nota2": nota2,
-            "media": media 
-        }
-        alunos.append(aluno)
-        print("\nAluno cadastrado com sucesso!\n")
-    except ValueError:
-        print("As medias devem ser numero!")
-    
- 
-    
+    media = (nota1 + nota2) / 2
+
+    alunos.append({"nome": nome,"nota1": nota1,"nota2": nota2,"media": media})
+    print("\nAluno cadastrado com sucesso!\n")
+
 def mostrar_media():
     print("\n")
     print("Média das provas:")
+    print("\n")
     i = 0
     while i < len(alunos):
-        print(f'{i+1}- {alunos[i]["nome"]}') 
-        print(f'Média: {alunos[i]["media"]:.1f}\n')  
+        print(f'{i+1}-Nome: {alunos[i]["nome"]} Média: {alunos[i]["media"]:.1f}')  
         i = i + 1
-    print("\n")
 
 def listar_alunos():
     if len(alunos) == 0:
-        print("\n")
-        print("Nenhum aluno cadastrado!\n")
+        cadastro_vazio()
     else:
         print("\n")
         print("Lista dos alunos:")
+        print("\n")
         i = 0
         while i < len(alunos):
             print(f'{i+1}- {alunos[i]["nome"]}')
             i = i + 1
-        print("\n")
 
 def mostrar_resultado():
-    print("\n")
-    print("Resultados:")
-    i = 0
-    while i < len(alunos):
-        
-        print(f'{i+1}- {alunos[i]["nome"]}') 
-        print(f'Média: {alunos[i]["media"]:.1f}')
-        
-        if alunos[i]["media"] >= 6:
-            print("Aprovado")
-        else:
-            print("Reprovado")
-        print("")
-        i = i + 1
-    print("\n")
+    
+    if len(alunos) == 0:
+        cadastro_vazio()
+    else:
+        print("\n")
+        print("Resultados:")
+        print("\n")
+        i = 0
+        while i < len(alunos):
+            
+            if alunos[i]["media"] >= 6:
+                resultado = "Aprovado"
+            else:
+                resultado = "Reprovado"
 
+            print(f'{i+1}-Nome: {alunos[i]["nome"]} Média: {alunos[i]["media"]:.1f} Resultado: {resultado}') 
+            i = i + 1
+    
 def tratar_erro(texto):
    while True:
         try:
