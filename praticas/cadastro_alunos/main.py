@@ -19,9 +19,12 @@ while True:
       mostrar_resultado()
     
     elif opcao == 5:
-      melhor_aluno()
+      melhor_aluno(posicao)
 
     elif opcao == 6:
+      estatistica_turma(alunos)
+
+    elif opcao == 7:
       print("Saindo...")
       break
       
