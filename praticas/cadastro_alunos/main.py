@@ -17,8 +17,11 @@ while True:
 
     elif opcao == 4:
       mostrar_resultado()
-
+    
     elif opcao == 5:
+      melhor_aluno()
+
+    elif opcao == 6:
       print("Saindo...")
       break
       

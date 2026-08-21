@@ -11,7 +11,8 @@ def menu():
     print("2-Listar alunos")
     print("3-Calcular média")
     print("4-Mostrar aprovado/reprovado")
-    print("5-Sair")
+    print("5-Melhor Aluno")
+    print("6-Sair")
 
 def cadastrar_aluno():
     print("\n")
@@ -66,6 +67,28 @@ def mostrar_resultado():
             print(f'{i+1}-Nome: {alunos[i]["nome"]} Média: {alunos[i]["media"]:.1f} Resultado: {resultado}') 
             i = i + 1
     
+def posicao_melhor():
+    i=0
+    melhor = alunos[0]["media"]
+    while i < len(alunos):
+
+        if alunos[i]["media"] > melhor:
+            melhor = alunos[i]["media"]
+            indice = i
+        i=i+1
+    return indice
+
+def melhor_aluno():
+
+    print("\n")
+    print("Melhor(es) Aluno(s)")
+    print("\n")
+
+    posicao = int(posicao_melhor())
+
+    print(f'Nome: {alunos[posicao]["nome"]} Média: {alunos[posicao]["media"]:.1f}') 
+    
+
 def tratar_erro(texto):
    while True:
         try:
