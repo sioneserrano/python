@@ -2,12 +2,10 @@
 alunos = []
 
 def cadastro_vazio():
-    print("\n")
-    print("Nenhum aluno cadastrado!\n")
+    print("\nNenhum aluno cadastrado!\n")
 
 def menu():
-    print("\n")
-    print("1-Cadastrar aluno")
+    print("\n1-Cadastrar aluno")
     print("2-Listar alunos")
     print("3-Calcular média")
     print("4-Mostrar aprovado/reprovado")
@@ -16,8 +14,7 @@ def menu():
     print("7-Sair")
 
 def cadastrar_aluno():
-    print("\n")
-    print("Informe os dados do aluno")
+    print("\nInforme os dados do aluno")
     nome = input("Nome: ")
 
     nota1 = tratar_erro("Nota 1: ")
@@ -30,10 +27,7 @@ def cadastrar_aluno():
 
 def mostrar_media():
     if len(alunos) != 0:
-
-        print("\n")
-        print("Média das provas:")
-        print("\n")
+        print("\nMédia das provas\n")
         i = 0
         while i < len(alunos):
             print(f'{i+1}-Nome: {alunos[i]["nome"]} Média: {alunos[i]["media"]:.1f}')  
@@ -45,9 +39,7 @@ def listar_alunos():
     if len(alunos) == 0:
         cadastro_vazio()
     else:
-        print("\n")
-        print("Lista dos alunos:")
-        print("\n")
+        print("\nLista dos alunos\n")
         i = 0
         while i < len(alunos):
             print(f'{i+1}- {alunos[i]["nome"]}')
@@ -58,9 +50,7 @@ def mostrar_resultado():
     if len(alunos) == 0:
         cadastro_vazio()
     else:
-        print("\n")
-        print("Resultados:")
-        print("\n")
+        print("\nResultados\n")
         i = 0
         while i < len(alunos):
             
@@ -73,26 +63,26 @@ def mostrar_resultado():
             i = i + 1
     
 def posicao_melhor():
-    if len(alunos) != 0:
-    
+    if len(alunos) == 0:
+        cadastro_vazio()
+    else: 
         i=0
+        indice=0
         melhor = alunos[0]["media"]
+
         while i < len(alunos):
 
             if alunos[i]["media"] > melhor:
                 melhor = alunos[i]["media"]
                 indice = i
             i=i+1
-        return indice
-    else:
-        cadastro_vazio()
 
-posicao = posicao_melhor()
+    return indice
 
-def melhor_aluno(posicao):
+def melhor_aluno():
     if len(alunos) != 0:
         print("\nMelhor(es) Aluno(s)\n")
-        print(f'Nome: {alunos[posicao]["nome"]} Média: {alunos[posicao]["media"]:.1f}') 
+        print(f'Nome: {alunos[posicao_melhor()]["nome"]} Média: {alunos[posicao_melhor()]["media"]:.1f}') 
     else:
         cadastro_vazio()
 

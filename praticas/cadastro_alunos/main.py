@@ -19,7 +19,7 @@ while True:
       mostrar_resultado()
     
     elif opcao == 5:
-      melhor_aluno(posicao)
+      melhor_aluno()
 
     elif opcao == 6:
       estatistica_turma(alunos)
