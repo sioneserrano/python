@@ -7,7 +7,7 @@ Repositório para documentar meu progresso em Python através de estudos diário
 Estudos diários- Exercícios práticos organizados por dia
 Projetos - Aplicações completas para consolidar o aprendizado
 
----
+--
 
 ## Objetivo
 
