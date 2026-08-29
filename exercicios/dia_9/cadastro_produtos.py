@@ -1,8 +1,19 @@
 produtos = []
 
 
-def cadastrar_produto():
-    print()
+def cadastrar_produto(produtos):
+
+    print("\nCadastro produto")
+    
+
+    nome = input("Nome: ")
+    preco = tratar_erro("Preço: ")
+    
+    produtos.append({"nome": nome, "preco": preco})
+    print("Produto cadastrado!\n")
+   
+
+
 def listar_produtos():
     print()
 def mostrar_produto_mais_caro():
@@ -16,7 +27,7 @@ def tratar_erro(texto):
 
     while True:
         try:
-            numero = int(input(texto))
+            numero = float(input(texto))
             if numero >= 0:
                 return numero
             else:
@@ -36,9 +47,9 @@ while True:
     opcao = tratar_erro("Digite uma opção: ")
 
     if opcao == 1:
-        print()
+        cadastrar_produto(produtos)
     elif opcao == 2:
-        print()
+         print(produtos)
     elif opcao == 3:
         print()
     elif opcao == 4:
