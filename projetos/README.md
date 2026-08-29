@@ -1,6 +1,6 @@
-## 🚀 Projetos
+## Projetos
 
-### Sistema de Alunos 2.0
+### Sistema de Alunos
 Sistema completo para gerenciamento de alunos com as funcionalidades:
 
 | Funcionalidade | Descrição |
