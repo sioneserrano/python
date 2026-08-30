@@ -15,7 +15,7 @@ def cadastrar_produto(produtos):
 def listar_produtos(produtos):
 
     print("\nLista de produtos")
-    cadastro_vazio()
+    cadastro_vazio(produtos)
     i = 0
     while i < len(produtos):
         print(f"{i+1} - Nome: {produtos[i]['nome']}|Preço: {produtos[i]['preco']}")
@@ -25,7 +25,7 @@ def listar_produtos(produtos):
     
 def mostrar_produto_mais_caro(produtos):
 
-    cadastro_vazio()
+    cadastro_vazio(produtos)
     if len(produtos) != 0:
         i = 0
         indice_maior = 0
@@ -42,7 +42,7 @@ def mostrar_produto_mais_caro(produtos):
 
 def mostrar_preco_media(produtos):
 
-    cadastro_vazio()
+    cadastro_vazio(produtos)
     if len(produtos) != 0:
         i = 0
         soma = 0
@@ -54,8 +54,28 @@ def mostrar_preco_media(produtos):
         print(f"Media: {media:.2f}")
 
 
-def buscar_produto():
-    print()
+def buscar_produto(produtos):
+    cadastro_vazio(produtos)
+
+    if len(produtos) != 0:
+        
+        print("\nBusca de produto")
+        produto = input("Digite o produto: ")
+
+        i = 0
+        encontrado = {}
+        while i < len(produtos):
+            if produtos[i]["nome"] == produto:
+                encontrado = {"Nome": produtos[i]["nome"], "Preco": produtos[i]["preco"]}
+            i+=1
+        
+        if encontrado == {}:
+            print("Produto não encontrado.")
+
+        else:
+            print(f"\nProduto encontrado:")
+            for key, value in encontrado.items():
+                print(f"{key}: {value}")
 
 def tratar_erro(texto):
 
@@ -73,7 +93,7 @@ def menu():
 
     print("\n1 - Cadastrar produto \n2 - Listar produtos \n3 - Mostrar produto mais caro \n4 - Mostrar preço médio \n5 - Buscar produto \n6 - Sair")
 
-def cadastro_vazio():
+def cadastro_vazio(produtos):
     if len(produtos) == 0:
         print("\nNenhum produto encontrado!\n")
 
@@ -91,7 +111,7 @@ while True:
     elif opcao == 4:
         mostrar_preco_media(produtos)
     elif opcao == 5:
-        print()
+        buscar_produto(produtos)
     elif opcao == 6:
         print("Saindo...\n")
         break
