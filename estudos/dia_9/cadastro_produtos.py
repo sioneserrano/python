@@ -24,7 +24,7 @@ def listar_produtos(produtos):
 
     
 def mostrar_produto_mais_caro(produtos):
-    
+
     cadastro_vazio()
     if len(produtos) != 0:
         i = 0
@@ -39,9 +39,21 @@ def mostrar_produto_mais_caro(produtos):
         print("\nProduto mais caro")
         print(f"Nome: {produtos[indice_maior]["nome"]}|Preço: {produtos[indice_maior]["preco"]}")
 
-    print()
-def mostrar_preco_media():
-    print()
+
+def mostrar_preco_media(produtos):
+
+    cadastro_vazio()
+    if len(produtos) != 0:
+        i = 0
+        soma = 0
+        while i < len(produtos):
+            soma += produtos[i]["preco"] 
+            i+=1
+        media = soma / len(produtos)
+        print("\nPreço médio dos produtos")
+        print(f"Media: {media:.2f}")
+
+
 def buscar_produto():
     print()
 
@@ -77,7 +89,7 @@ while True:
     elif opcao == 3:
         mostrar_produto_mais_caro(produtos)
     elif opcao == 4:
-        print()
+        mostrar_preco_media(produtos)
     elif opcao == 5:
         print()
     elif opcao == 6:
