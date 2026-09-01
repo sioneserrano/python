@@ -27,15 +27,14 @@ def mostrar_estoque(produtos):
 
     estoque = verificar_estoque(produtos)
 
-    print("\nProdutos com estoque normal")
-    for i in estoque:
+    print("\nProdutos com estoque normal:")
+    for i in estoque['normal']:
         print(i)
-     
+
     print("\nProdutos com estoque baixo:")
-    for i in estoque:
+    for i in estoque['abaixo']:
         print(i)
     print("\n\n")
-
-
+    
 mostrar_estoque(produtos)
     
