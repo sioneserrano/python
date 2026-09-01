@@ -20,3 +20,15 @@ def equipamentos_criticos(equipamentos):
 
     return criticos
 
+
+def temperatura_media(equipamentos):
+
+    i = 0
+    soma = 0
+    while i < len(equipamentos):
+        soma += equipamentos[i]["temperatura"]
+        i += 1
+
+    media = soma / len(equipamentos)
+    return media
+
