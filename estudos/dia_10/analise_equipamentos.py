@@ -32,3 +32,16 @@ def temperatura_media(equipamentos):
     media = soma / len(equipamentos)
     return media
 
+def mostrar_analise(equipamentos):
+
+    criticos = equipamentos_criticos(equipamentos)
+
+    print("\nEquipamentos críticos:") 
+
+    for equipamento in criticos:
+        print(equipamento)
+
+    print(f"\nTemperatura média: {temperatura_media(equipamentos):.2f}°C\n\n")
+    
+
+mostrar_analise(equipamentos)
